@@ -13,10 +13,13 @@ let costRecords = [];
 
 /* ---------- Boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  // Render all sections first so elements exist for event handlers
+  // Render all sections first so they exist for event handlers
   renderFuelSection();
   renderCostSection();
   renderSummarySection();
+
+  // Show only Fuel section by default
+  showTab("fuelSection");
 
   // Initialize Firebase/network status
   const connected = initFirebase();
@@ -75,18 +78,23 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const target = btn.getAttribute("data-tab");
-      // Hide all tab-content sections
-      document.querySelectorAll(".tab-content").forEach(sec => {
-        sec.style.display = "none";
-      });
-      // Remove active class from all tab-btns
-      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-      // Show the selected section and mark tab active
-      document.getElementById(target).style.display = "block";
-      btn.classList.add("active");
+      showTab(target);
     });
   });
 });
+
+/* ---------- Tab Show/Hide Logic ---------- */
+function showTab(tabId) {
+  // Hide all tab-content sections
+  document.querySelectorAll(".tab-content").forEach(sec => {
+    sec.style.display = "none";
+  });
+  // Remove active class from all tab-btns
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  // Show the selected section and mark tab active
+  document.getElementById(tabId).style.display = "block";
+  document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add("active");
+}
 
 /* ---------- Fuel ---------- */
 function wireFuelForm() {
