@@ -26,9 +26,10 @@
   <div id="syncStatus" class="sync-status"></div>
 
   <!-- Scripts -->
-  <script src="storage.js"></script>
-  <script src="ui.js"></script>
-  <script src="app.js"></script>
+  <!-- XLSX library for spreadsheet export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- Main app script as ES module -->
+  <script type="module" src="app.js"></script>
 
   <!-- Register Service Worker -->
   <script>
