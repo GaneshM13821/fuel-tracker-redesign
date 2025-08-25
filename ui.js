@@ -61,13 +61,12 @@ export function renderFuelSection() {
     </form>
 
     <div class="table-wrapper">
-	  <!-- 🔍 Filters -->
-	  <div class="filter-bar">
-		<label>From: <input type="date" id="fuelFilterFrom"></label>
-		<label>To: <input type="date" id="fuelFilterTo"></label>
-		<button id="applyFuelFilter" class="export-btn">Filter</button>
-		<button id="resetFuelFilter" class="export-btn">Reset</button>
-	  </div>
+      <div class="filter-bar">
+        <label>From: <input type="date" id="fuelFilterFrom"></label>
+        <label>To: <input type="date" id="fuelFilterTo"></label>
+        <button id="applyFuelFilter" class="export-btn">Filter</button>
+        <button id="resetFuelFilter" class="export-btn">Reset</button>
+      </div>
       <table class="fuel-table">
         <thead>
           <tr>
@@ -118,13 +117,12 @@ export function renderCostSection() {
     </form>
 
     <div class="table-wrapper">
-	  <!-- 🔍 Filters -->
-	  <div class="filter-bar">
-		<label>From: <input type="date" id="costFilterFrom"></label>
-		<label>To: <input type="date" id="costFilterTo"></label>
-		<label>Item: <input type="text" id="costFilterItem" placeholder="Search item"></label>
-		<button id="resetCostFilter" class="export-btn">Reset</button>
-	  </div>
+      <div class="filter-bar">
+        <label>From: <input type="date" id="costFilterFrom"></label>
+        <label>To: <input type="date" id="costFilterTo"></label>
+        <label>Item: <input type="text" id="costFilterItem" placeholder="Search item"></label>
+        <button id="resetCostFilter" class="export-btn">Reset</button>
+      </div>
       <table class="cost-table">
         <thead>
           <tr>
