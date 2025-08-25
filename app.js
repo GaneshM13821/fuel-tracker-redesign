@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("exportAllCSV").addEventListener("click", () => {
     exportAllXLSX();
   });
-  
-   // --- Dark Mode Toggle ---
+
+  // --- Dark Mode Toggle ---
   const themeToggle = document.getElementById("themeToggle");
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
@@ -55,38 +55,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-	document.getElementById("applyFuelFilter").addEventListener("click", applyFuelFilter);
-	document.getElementById("resetFuelFilter").addEventListener("click", resetFuelFilter);
+  document.getElementById("applyFuelFilter").addEventListener("click", applyFuelFilter);
+  document.getElementById("resetFuelFilter").addEventListener("click", resetFuelFilter);
 
-	document.getElementById("applyCostFilter").addEventListener("click", applyCostFilter);
-	document.getElementById("resetCostFilter").addEventListener("click", resetCostFilter);
-	// Live search on typing
-	document.getElementById("costFilterItem").addEventListener("input", applyCostFilter);
+  document.getElementById("applyCostFilter").addEventListener("click", applyCostFilter);
+  document.getElementById("resetCostFilter").addEventListener("click", resetCostFilter);
+  // Live search on typing
+  document.getElementById("costFilterItem").addEventListener("input", applyCostFilter);
 
-	// Reset button
-	document.getElementById("resetCostFilter").addEventListener("click", resetCostFilter);
+  // (Removed duplicate resetCostFilter event listener here)
 
   refreshAll();
-  
+
   // Tab switching logic
-	document.querySelectorAll(".tab-btn").forEach(btn => {
-	  btn.addEventListener("click", () => {
-		const target = btn.getAttribute("data-tab");
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const target = btn.getAttribute("data-tab");
 
-		// Hide all sections
-		document.querySelectorAll(".tab-content").forEach(sec => {
-		  sec.style.display = "none";
-		});
+      // Hide all sections
+      document.querySelectorAll(".tab-content").forEach(sec => {
+        sec.style.display = "none";
+      });
 
-		// Remove active class
-		document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      // Remove active class
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
 
-		// Show selected
-		document.getElementById(target).style.display = "block";
-		btn.classList.add("active");
-	  });
-	});
-	
+      // Show selected
+      document.getElementById(target).style.display = "block";
+      btn.classList.add("active");
+    });
+  });
+
 });
 
 /* ---------- Fuel ---------- */
@@ -515,3 +514,4 @@ function renderCostTable(records = costRecords) {
     `;
   });
 }
+
